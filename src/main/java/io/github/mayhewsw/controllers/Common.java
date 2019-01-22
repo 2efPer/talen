@@ -1,12 +1,8 @@
 package io.github.mayhewsw.controllers;
 
-import edu.illinois.cs.cogcomp.core.io.LineIO;
 import io.github.mayhewsw.ConfigFile;
-
 import java.io.*;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
 
 public class Common {
 
