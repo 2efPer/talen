@@ -1,11 +1,11 @@
 package io.github.mayhewsw;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 /**
@@ -21,7 +21,7 @@ public class ConfigFile extends Properties{
     private String indexpath;
     private String terms;
 
-    public List<String> allowableentries;
+    private static Logger logger = LoggerFactory.getLogger(ConfigFile.class);
 
     public ConfigFile(){
         // do something with properties?
@@ -30,7 +30,7 @@ public class ConfigFile extends Properties{
     public void loadProperties(BufferedReader var1) throws IOException {
         super.load(var1);
 
-        System.out.println(StringUtils.join(this.stringPropertyNames(), " "));
+        logger.info("loading properties: {}",StringUtils.join(this.stringPropertyNames(), " "));
 
         // also load all the properties herein.
         folderpath = this.getProperty("folderpath");
@@ -39,16 +39,16 @@ public class ConfigFile extends Properties{
         mode = this.getProperty("mode");
 
         if(folderpath == null){
-            System.err.println("folderpath must be non-null!");
+            logger.error("folderpath must be non-null!");
         }
         if(labels == null){
-            System.err.println("labels must be non-null!");
+            logger.error("labels must be non-null!");
         }
         if(name == null){
-            System.err.println("name must be non-null!");
+            logger.error("name must be non-null!");
         }
         if(mode == null){
-            System.err.println("mode must be non-null!");
+            logger.error("mode must be non-null!");
         }
 
         dict = this.getProperty("dict");

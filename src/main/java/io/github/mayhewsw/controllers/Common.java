@@ -1,6 +1,9 @@
 package io.github.mayhewsw.controllers;
 
 import io.github.mayhewsw.ConfigFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.util.HashMap;
 
@@ -10,6 +13,8 @@ public class Common {
     public static final String FOLDERTAJSON = "tajson";
     public static final String FOLDERCOLUMN = "column";
     public static final String FOLDERCONLL = "conll";
+
+    private static Logger logger = LoggerFactory.getLogger(Common.class);
 
 
     public static HashMap<String, ConfigFile> loadConfig() {
@@ -25,7 +30,7 @@ public class Common {
 
             if(f.getName().startsWith("doc-") || f.getName().startsWith("sent-")) {
 
-                System.out.println(f);
+                logger.info("loaded files: {}",f);
                 ConfigFile c = new ConfigFile();
 
                 try {
