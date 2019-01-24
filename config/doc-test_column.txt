@@ -1,0 +1,5 @@
+mode	document
+folderpath	data/testcolumn
+name	test_column
+format	column
+labels	ORG PER

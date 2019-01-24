@@ -1,0 +1,8 @@
+mode	document
+folderpath	data/test2
+terms	term3,term4
+name	test_doc_textannotation
+format	ta
+dict	test2_dict
+indexpath	data/index_test2
+labels	ORG PER
